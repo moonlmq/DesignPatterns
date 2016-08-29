@@ -1,7 +1,8 @@
 package pers.moon.designpattern.singleton;
-//����ģʽ������Ҫ��ȡʱ�Ž��д���
+//懒汉式单例模式
+    //比较懒，在类加载时，不创建实例，因此类加载速度快，但运行时获取对象的速度慢
 public class LazySingleton {
-	private static LazySingleton instance = new LazySingleton();
+	private static LazySingleton instance = null;
 	private LazySingleton(){
 		System.out.println("come into the Lazy construct");
 	}
