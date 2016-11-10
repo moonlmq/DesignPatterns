@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="GBK"?>
+<config>
+	<bean id="viewResolver">
+		<prefix>/WEB-INF/jsp/</prefix>
+		<suffix>.jsp</suffix></bean>
+	<bean id="actionResolver">
+		<extends>com.gd.mvc.action.GdAction</extends></bean>
+	<page path="regedit" actionName="com.myContent.action.RegeditAction">
+		<forward name="login" path="/WEB-INF/jsp/login.jsp"></forward>
+		<action action="login" method="doLogin" forward="login"></action>
+		<valueObject id="user" class="com.myContent.vo.User" table="user" type="single" validate="Y"></valueObject></page>
+	<page path="login" actionName="com.myContent.action.LoginAction">
+		<action action="login" method="doLogin" forward="login"></action>
+		<forward name="login" path="/WEB-INF/jsp/login.jsp"></forward>
+		<valueObject id="user" class="com.myContent.vo.User"
+			table="user" type="single" validate="Y">
+		</valueObject></page>
+	<page path="type" actionName="com.myContent.action.SetTypeAction">
+		<forward name="type" path="/WEB-INF/jsp/type.jsp"></forward>
+		<action action="insert" method="doInsert" forward="type"></action>
+		<action action="update" method="doUpdate" forward="type"></action>
+		<action action="delete" method="doDelete" forward="type"></action>
+		<valueObject id="contentType" class="com.myContent.vo.ContentType"
+			table="contentType" type="single" validate="Y">
+		</valueObject></page>
+	<page path="edit" actionName="com.myContent.action.EditAction">
+		<forward name="edit" path="/WEB-INF/jsp/edit.jsp"></forward>
+		<action action="insert" method="doInsert" forward="edit"></action>
+		<action action="update" method="doUpdate" forward="edit"></action>
+		<action action="delete" method="doDelete" forward="edit"></action>
+		<valueObject id="content" class="com.myContent.vo.Content"
+			table="content" type="single">
+		</valueObject>
+		<valueObject id="contentMany" class="com.myContent.vo.Content"
+			type="many">
+		</valueObject>
+		</page>
+		<page path ="index" actionName="com.myContent.action.IndexAction">
+		<forward name="index" path="/WEB-INF/jsp/index.jsp"></forward>
+		</page></config>
